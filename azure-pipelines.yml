@@ -77,7 +77,6 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Deploy Azure Web App : hadzung-udacity-azure-project2'
             inputs:
-            inputs:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
