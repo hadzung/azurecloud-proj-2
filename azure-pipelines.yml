@@ -8,7 +8,7 @@ trigger:
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureServiceConnectionId: '3690c49a-91cb-496a-8e43-5771a6eb5bcf'
+  azureServiceConnectionId: '074dd67d-981b-40b7-ac50-10deaf7ea8e0'
 
   # Web app name
   webAppName: 'hadzung-udacity-azure-project2'
@@ -77,6 +77,7 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Deploy Azure Web App : hadzung-udacity-azure-project2'
             inputs:
-              PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' 
-              ArtifactName: 'drop' 
-              ArtifactType: 'container'
+            inputs:
+              azureSubscription: $(azureServiceConnectionId)
+              appName: $(webAppName)
+              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
