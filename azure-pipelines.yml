@@ -38,6 +38,7 @@ stages:
     - script: |
         sudo add-apt-repository ppa:deadsnakes/ppa
         sudo apt update
+        sudo apt-get install zip
         sudo apt install python3.12-venv
         python3 -m venv ~/.myrepo
         source ~/.myrepo/bin/activate
