@@ -39,7 +39,7 @@ stages:
         sudo add-apt-repository ppa:deadsnakes/ppa
         sudo apt update
         sudo apt install zip -y
-        sudo apt install python3.12-venv
+        sudo apt install python3-venv
         python3 -m venv ~/.myrepo
         source ~/.myrepo/bin/activate
         python3 -m pip install --upgrade pip
