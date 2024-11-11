@@ -8,7 +8,7 @@ trigger:
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureServiceConnectionId: '074dd67d-981b-40b7-ac50-10deaf7ea8e0'
+  azureServiceConnectionId: '040a040d-ced2-4f12-b2b3-cd9d3f1aa601'
 
   # Web app name
   webAppName: 'hadzung-udacity-azure-project2'
