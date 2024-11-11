@@ -11,7 +11,7 @@ variables:
   azureServiceConnectionId: '040a040d-ced2-4f12-b2b3-cd9d3f1aa601'
 
   # Web app name
-  webAppName: 'hadzung-udacity-azure-project2'
+  webAppName: 'flask-ml-service'
 
   # Agent pool name
   agentName: 'myAgent'
