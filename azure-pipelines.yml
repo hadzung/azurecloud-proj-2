@@ -8,10 +8,10 @@ trigger:
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureServiceConnectionId: '040a040d-ced2-4f12-b2b3-cd9d3f1aa601'
+  azureServiceConnectionId: '501291e8-ea63-40ae-93a2-c57842f77f92'
 
   # Web app name
-  webAppName: 'flask-ml-service'
+  webAppName: 'udacity-azure-project2'
 
   # Agent pool name
   agentName: 'myAgent'
@@ -23,7 +23,7 @@ variables:
   projectRoot: $(System.DefaultWorkingDirectory)
 
   # Python version: 3.13.0
-  pythonVersion: '3.13.0'
+  pythonVersion: '3.10.0'
 pool:
   name: myAgent
 
