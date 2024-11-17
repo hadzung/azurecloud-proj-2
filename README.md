@@ -1,7 +1,6 @@
 # Overview
 
-<TODO: complete this with an overview of your project>
-
+This project is about to build an ML app and use Azure Pipeline and Github action for CI/CD
 ## Project Plan
 
 * Trello board for the project: https://trello.com/b/aH0N3jnl/udacityproject2
