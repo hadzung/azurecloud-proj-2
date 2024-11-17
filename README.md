@@ -4,7 +4,7 @@ This project is about to build an ML app and use Azure Pipeline and Github actio
 ## Project Plan
 
 * Trello board for the project: https://trello.com/b/aH0N3jnl/udacityproject2
-* Spreadsheet: https://docs.google.com/spreadsheets/d/1dFAw-lYMBx92EwwMtnPG596USrdmiWOqXttB840b6u8/edit?gid=1348135932#gid=1348135932>
+* Spreadsheet: https://docs.google.com/spreadsheets/d/1dFAw-lYMBx92EwwMtnPG596USrdmiWOqXttB840b6u8/edit?gid=1348135932#gid=1348135932
 
 ## Instructions
 
