@@ -21,8 +21,6 @@ Azure CD:
 
 ![Azure CD](https://github.com/hadzung/azurecloud-proj-2/blob/main/screenshots/cd.png)
 
-
-
 Instructions for running the Python project.  How could a user with no context run this project without asking you for any help.  Include screenshots with explicit steps to create that work. Be sure to at least include the following screenshots:
 #Deployment Guide
 ##Setup Azure Cloudshell
@@ -63,43 +61,37 @@ Resolving deltas: 100% (95/95), done.
 az webapp up --name udacity-azure-project2 --resource-group Azuredevops --sku B1 --logs --runtime "PYTHON:3.10"
 ```
 
+### Running Azure App Service from Azure Pipelines automatic deployment
+
+![azureppl](https://github.com/hadzung/azurecloud-proj-2/blob/main/screenshots/azure_pipeline.png)
+
+### Azure App Service on Azure portal:
+
+![azureportal](https://github.com/hadzung/azurecloud-proj-2/blob/main/screenshots/azure_appservice.png)
+
 ### View Live Log stream
 ```
 az webapp log tail --name udacity-azure-project2 --resource-group Azuredevops
 ```
 
-![dockerLog](https://github.com/hadzung/azurecloud-proj-2/blob/main/screenshots/logstream.png)
-
 ![Log Stream](https://github.com/hadzung/azurecloud-proj-2/blob/main/screenshots/live_log_stream.png)
+
+![dockerLog](https://github.com/hadzung/azurecloud-proj-2/blob/main/screenshots/logstream.png)
 
 ### Verify on browser
 
 ![applicationChrome](https://github.com/hadzung/azurecloud-proj-2/blob/main/screenshots/azureapp_chrome.png)
 
-
 ### Perform Prediction
 
 ![Prediction](https://github.com/hadzung/azurecloud-proj-2/blob/main/screenshots/prediction.png)
 
-
-* Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
-
-* Running Azure App Service from Azure Pipelines automatic deployment
-
-* Successful prediction from deployed flask app in Azure Cloud Shell.  [Use this file as a template for the deployed prediction](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/blob/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn/make_predict_azure_app.sh).
-The output should look similar to this:
-
-
 ## Enhancements
-
-<TODO: 
 Some update that we can improve:
 1. Create git flow, branching and merging strategy so we can manage our source code and version better
 2. Create notification to related stakeholder after finish deployment
->
 
 ## Demo 
-
-<TODO: Demo on Youtube: https://www.youtube.com/watch?v=04C5GL4G84Q>
+Demo on Youtube: https://www.youtube.com/watch?v=04C5GL4G84Q
 
 
