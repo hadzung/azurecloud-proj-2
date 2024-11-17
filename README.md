@@ -28,7 +28,9 @@ Instructions for running the Python project.  How could a user with no context r
 ##Setup Azure Cloudshell
 ### Generate sshkey and add to github account
 
+![key gen](https://github.com/hadzung/azurecloud-proj-2/blob/main/screenshots/keygen.png)
 
+Copy and paste content of file id_rsa.pub into GitHub. (GitHub > Settings > SSH and GPG keys > Paste > Add the key). Then you can clone source code from GITHUB to your cloudshell
 
 ### Clone source code
 ```
@@ -52,6 +54,8 @@ Resolving deltas: 100% (95/95), done.
   make install
   python -m flask run
 ```
+![makeinstall](https://github.com/hadzung/azurecloud-proj-2/blob/main/screenshots/makeinstall.png)
+
 
 ### Create a web app service
 
