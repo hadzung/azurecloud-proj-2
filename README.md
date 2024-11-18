@@ -21,6 +21,20 @@ Azure CD:
 ![Azure CD](https://github.com/hadzung/azurecloud-proj-2/blob/main/screenshots/cd.png)
 
 Instructions for running the Python project.  How could a user with no context run this project without asking you for any help.  Include screenshots with explicit steps to create that work. Be sure to at least include the following screenshots:
+# Continuous Integration
+[![Python application test with Github Actions](https://github.com/hadzung/azurecloud-proj-2/actions/workflows/pythonapp.yml/badge.svg)](https://github.com/hadzung/azurecloud-proj-2/actions/workflows/pythonapp.yml)
+
+# Clone source code to Cloudshell
+![cloudshellclone](https://github.com/hadzung/azurecloud-proj-2/blob/main/screenshots/cloudshell_clone_code.png)
+
+# Make all command from the Makefile
+![Makeall](https://github.com/hadzung/azurecloud-proj-2/blob/main/screenshots/cloudshell_make_all.png)
+
+# Test Run
+
+![TestRun](https://github.com/hadzung/azurecloud-proj-2/blob/main/screenshots/githubAction_Build.png)
+
+
 #Deployment Guide
 ##Setup Azure Cloudshell
 ### Generate sshkey and add to github account
