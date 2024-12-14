@@ -1,81 +1,47 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - main
 
-variables:
-  # Azure Resource Manager connection created during pipeline creation
-  azureServiceConnectionId: '0030c332-85d3-4906-815c-3ac9bdc1258b'
-
-  # Web app name
-  webAppName: 'udacity-azure-project2'
-
-  # Agent pool name
-  agentName: 'myAgent'
-
-  # Environment name
-  environmentName: 'hadzung-udacity-azure-project2'
-
-  # Project root folder. Point to the folder containing manage.py file.
-  projectRoot: $(System.DefaultWorkingDirectory)
-
-  # Python version: 3.13.0
-  pythonVersion: '3.10.0'
 pool:
   name: myAgent
 
+variables:
+  ARM_CLIENT_ID: $(ARM_CLIENT_ID)
+  ARM_CLIENT_SECRET: $(ARM_CLIENT_SECRET)
+  ARM_SUBSCRIPTION_ID: $(ARM_SUBSCRIPTION_ID)
+  ARM_TENANT_ID: $(ARM_TENANT_ID)
+  agentName: 'myAgent'
+
 stages:
-- stage: Build
-  displayName: Build stage
+- stage: Initialize
   jobs:
-  - job: BuildJob
-    pool:
-      name: $(agentName)
-    steps:
-    - script: |
-        sudo apt update
-        sudo apt install zip -y
-        sudo apt install python3-venv -y
-        python3 -m venv ~/.myrepo
-        source ~/.myrepo/bin/activate
-        python3 -m pip install --upgrade pip
-        pip install setuptools
-        pip install -r requirements.txt
-      workingDirectory: $(projectRoot)
-      displayName: "Install requirements.txt"
+    - job: TerraformInit
+      pool:
+        name: $(agentName)
+      steps:
+        - checkout: self
 
-    - task: ArchiveFiles@2
-      displayName: 'Archive files'
-      inputs:
-        rootFolderOrFile: '$(projectRoot)'
-        includeRootFolder: false
-        archiveType: zip
-        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-        replaceExistingArchive: true
+        - script: |
+            curl -sSL https://releases.hashicorp.com/terraform/1.0.11/terraform_1.0.11_linux_amd64.zip -o terraform.zip
+            unzip terraform.zip
+            sudo mv -f terraform /usr/local/bin/terraform
+            terraform version
+          displayName: 'Install Terraform'
 
-    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-      displayName: 'Upload package'
-      artifact: drop
-      
-- stage: Deploy
-  displayName: 'Deploy My Web App'
-  dependsOn: Build
-  condition: succeeded()
+        - script: |
+            terraform init
+          displayName: 'Terraform Init'
+          workingDirectory: 'terraform/environments/test'
+
+- stage: Plan
+  dependsOn: Initialize
   jobs:
-  - deployment: DeploymentJob
-    pool:
-      name: $(agentName)
-    environment: $(environmentName)
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App : hadzung-udacity-azure-project2'
-            inputs:
-              azureSubscription: $(azureServiceConnectionId)
-              appName: $(webAppName)
-              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+    - job: TerraformPlan
+      pool:
+        name: $(agentName)
+      steps:
+        - script: |
+            terraform plan -out=tfplan
+          displayName: 'Terraform Plan'
+          workingDirectory: 'terraform/environments/test'
+
+- stage:
